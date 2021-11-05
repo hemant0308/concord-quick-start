@@ -1,9 +1,15 @@
+configuration:
+  arguments:
+    formNameVar: "myForm"
+
 flows:
   default:
-    - log: "Hello!"
+  - form: ${formNameVar}
+  - log: "Hello, ${myForm.name}"
+  - log: "Hello, ${context.getVariable(formNameVar).name}"
 
-    - if: "${1 > 2}"
-      then:
-        - log: "How is this possible?"
-
-    - log: "Bye!"
+forms:
+  myForm:
+    - name: { type: "string" }
+  secondForm:
+    - date: { type: "string" }
