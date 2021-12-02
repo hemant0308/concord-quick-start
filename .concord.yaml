@@ -1,15 +1,13 @@
 configuration:
-  arguments:
-    formNameVar: "myForm"
-    runtime: "concord-v2"
+  runtime: "concord-v2"
 flows:
   default:
-  - form: ${formNameVar}
-  - log: "Hello, ${myForm.name}"
-  - log: "Hello, ${context.getVariable(formNameVar).name}"
-
-forms:
-  myForm:
-    - name: { type: "string" }
-  secondForm:
-    - date: { type: "string" }
+    - task: http
+      in:
+        method: GET # or DELETE
+        url: "https://jsonplaceholder.typicode.com/todos/1"
+        response: json
+      out: jsonResponse
+    - if: ${jsonResponse.ok}
+      then:
+      - log: "Response received: ${jsonResponse.content}"
