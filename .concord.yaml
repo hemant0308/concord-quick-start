@@ -5,5 +5,5 @@ flows:
     - form: firstForm
 forms:
   firstForm:
-    - name: {type:"string"}
-    - phone: {type:"string"}
+    - name: {type: "string"}
+    - phone: {type: "string"}
