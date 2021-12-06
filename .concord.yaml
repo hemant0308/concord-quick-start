@@ -2,12 +2,8 @@ configuration:
   runtime: "concord-v2"
 flows:
   default:
-    - task: http
-      in:
-        method: GET # or DELETE
-        url: "https://jsonplaceholder.typicode.com/todos/1"
-        response: json
-      out: jsonResponse
-    - if: ${jsonResponse.ok}
-      then:
-      - log: "Response received: ${jsonResponse.content}"
+    - form: firstForm
+forms:
+  firstForm:
+    name: {type:"string"}
+    phone: {type:"string"}
