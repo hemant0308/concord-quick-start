@@ -3,6 +3,7 @@ configuration:
 flows:
   default:
     - form: firstForm
+    - form: firstForm
 forms:
   firstForm:
     - name: {type: "string"}
