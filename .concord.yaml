@@ -2,8 +2,7 @@ configuration:
   runtime: "concord-v2"
 flows:
   default:
-    - form: firstForm
-    - form: firstForm
+    - log: "Executed"
 forms:
   firstForm:
     - name: {type: "string"}
